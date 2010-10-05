@@ -2,6 +2,7 @@
 set guioptions=-t
 if has("gui_macvim")
   set guifont=Monaco:h13
+  colors desert
 elseif has("gui_running")
   colors desert
 else
