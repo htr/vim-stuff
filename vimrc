@@ -19,6 +19,9 @@ set termencoding=utf-8
 map <leader>e :e ~/.vimrc<CR>
 map <leader>s :source ~/.vimrc<CR>
 
+map <C-p> :tabp<CR>
+map <C-n> :tabn<CR>
+
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
@@ -31,6 +34,7 @@ map <C-b> :FufBuffer<CR>
 "basic stuff
 filetype plugin indent on
 syntax on
+set directory=~/.vimswp
 set visualbell
 set laststatus=2
 set statusline=%f\ [%{strlen(&ft)?&ft:'none'},%{&fileformat}]\ %h%1*%m%r%w%0*%=%-14.(%l,%c%V%)\ %<%P
