@@ -40,16 +40,16 @@ set laststatus=2
 set statusline=%f\ [%{strlen(&ft)?&ft:'none'},%{&fileformat}]\ %h%1*%m%r%w%0*%=%-14.(%l,%c%V%)\ %<%P
 
 "python
-autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with omnifunc=pythoncomplete#Complete
 let python_highlight_all=1
 let python_highlight_exceptions=0
 let python_highlight_builtins=0
 
 "ruby
-autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2 omnifunc=rubycomplete#Complete
 
 "css
-autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 omnifunc=csscomplete#CompleteCSS
 
 "java
 autocmd FileType java setlocal shiftwidth=4 tabstop=4 softtabstop=4
@@ -58,7 +58,7 @@ autocmd FileType java setlocal shiftwidth=4 tabstop=4 softtabstop=4
 autocmd FileType vim setlocal expandtab shiftwidth=2 tabstop=8 softtabstop=2
 
 "js
-autocmd FileType javascript setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType javascript setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2 omnifunc=javascriptcomplete#CompleteJS
 
 "c,cpp
 autocmd FileType c,cpp setlocal tabstop=8 shiftwidth=8 smarttab cindent autoindent textwidth=80 formatoptions+=l
