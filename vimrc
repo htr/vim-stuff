@@ -69,4 +69,5 @@ autocmd BufRead buildfile set filetype=ruby
 set wildignore+=*.o,*.obj,.git,*.pyc
 set wildignore+=django
 
+call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
