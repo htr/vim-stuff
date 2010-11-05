@@ -1,6 +1,12 @@
 [submodule "bundle/command-t"]
 	path = bundle/command-t
 	url = git://git.wincent.com/command-t.git
-[submodule "bundle/align"]
-	path = bundle/align
+[submodule "bundle/vim-align"]
+	path = bundle/vim-align
 	url = git://github.com/tsaleh/vim-align.git
+[submodule "bundle/pyflakes-vim"]
+	path = bundle/pyflakes-vim
+	url = git://github.com/kevinw/pyflakes-vim.git
+[submodule "bundle/pyflakes"]
+	path = bundle/pyflakes
+	url = git://github.com/kevinw/pyflakes.git

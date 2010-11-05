@@ -2,7 +2,7 @@
 set guioptions=-t
 if has("gui_macvim")
   set guifont=Monaco:h13
-  colors desert
+  colors ir_black
 elseif has("gui_running")
   colors desert
 else
@@ -13,6 +13,10 @@ endif
 set enc=utf-8
 set fenc=utf-8
 set termencoding=utf-8
+
+"pathogen
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
 
 
 "useful shortcuts
@@ -36,6 +40,7 @@ filetype plugin indent on
 syntax on
 set directory=~/.vimswp
 set visualbell
+let g:pyflakes_use_quickfix = 0
 set laststatus=2
 set statusline=%f\ [%{strlen(&ft)?&ft:'none'},%{&fileformat}]\ %h%1*%m%r%w%0*%=%-14.(%l,%c%V%)\ %<%P
 
@@ -69,4 +74,3 @@ autocmd BufRead buildfile set filetype=ruby
 set wildignore+=*.o,*.obj,.git,*.pyc
 set wildignore+=django
 
-call pathogen#runtime_append_all_bundles()
