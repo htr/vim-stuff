@@ -4,7 +4,8 @@ if has("gui_macvim")
   set guifont=Monaco:h13
   colors ir_black
 elseif has("gui_running")
-  colors desert
+  colors ir_black
+  set guifont=Droid\ Sans\ Mono\ 12
 else
   set background=dark
 endif
