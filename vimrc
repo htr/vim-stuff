@@ -1,7 +1,7 @@
 "gui settings
 set guioptions=-t
 if has("gui_macvim")
-  set guifont=Monaco:h13
+  set guifont=Droid\ Sans\ Mono:h13
   colors ir_black
 elseif has("gui_running")
   colors ir_black
