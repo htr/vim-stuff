@@ -5,7 +5,7 @@ if has("gui_macvim")
   colors ir_black
 elseif has("gui_running")
   colors ir_black
-  set guifont=Droid\ Sans\ Mono\ 12
+  set guifont=Terminus\ 13
 else
   set background=dark
 endif
@@ -50,6 +50,9 @@ autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 
 let python_highlight_all=1
 let python_highlight_exceptions=0
 let python_highlight_builtins=0
+
+"haskell
+autocmd FileType haskell setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 
 "ruby
 autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2 omnifunc=rubycomplete#Complete
