@@ -1,10 +1,14 @@
+"pathogen
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
+
 "gui settings
 set guioptions=-t
 if has("gui_macvim")
   set guifont=Inconsolata:h15
   colors vividchalk
 elseif has("gui_running")
-  colors ir_black
+  colors vividchalk
   set guifont=Terminus\ 13
 else
   set background=dark
@@ -14,10 +18,6 @@ endif
 set enc=utf-8
 set fenc=utf-8
 set termencoding=utf-8
-
-"pathogen
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
 
 "vim-indent-guides
 let g:indent_guides_start_level = 2
