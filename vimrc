@@ -74,6 +74,7 @@ autocmd FileType c,cpp setlocal tabstop=8 shiftwidth=8 smarttab cindent autoinde
 "
 
 autocmd BufRead buildfile set filetype=ruby
+autocmd BufRead Gemfile set filetype=ruby
 
 set wildignore+=*.o,*.obj,.git,*.pyc
 set wildignore+=django
