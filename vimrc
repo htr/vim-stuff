@@ -19,6 +19,9 @@ set termencoding=utf-8
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
+"vim-indent-guides
+let g:indent_guides_start_level = 2
+
 
 "useful shortcuts
 map <leader>e :e ~/.vimrc<CR>
