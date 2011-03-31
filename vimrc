@@ -5,8 +5,8 @@ call pathogen#runtime_append_all_bundles()
 "gui settings
 set guioptions=-t
 if has("gui_macvim")
-  set guifont=Inconsolata:h15
-  colors vividchalk
+  set guifont=Monaco:h13
+  colors desert
 elseif has("gui_running")
   colors vividchalk
   set guifont=Terminus\ 13
