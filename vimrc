@@ -22,7 +22,6 @@ set termencoding=utf-8
 "vim-indent-guides
 let g:indent_guides_start_level = 2
 
-
 "useful shortcuts
 map <leader>e :e ~/.vimrc<CR>
 map <leader>s :source ~/.vimrc<CR>
@@ -74,11 +73,17 @@ autocmd FileType javascript setlocal expandtab shiftwidth=2 tabstop=2 softtabsto
 
 "c,cpp
 autocmd FileType c,cpp setlocal tabstop=8 shiftwidth=8 smarttab cindent autoindent textwidth=80 formatoptions+=l
-"
 
 autocmd BufRead buildfile set filetype=ruby
 autocmd BufRead Gemfile set filetype=ruby
 
 set wildignore+=*.o,*.obj,.git,*.pyc
 set wildignore+=django
+
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
 
