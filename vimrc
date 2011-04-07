@@ -74,6 +74,9 @@ autocmd FileType javascript setlocal expandtab shiftwidth=2 tabstop=2 softtabsto
 "c,cpp
 autocmd FileType c,cpp setlocal tabstop=8 shiftwidth=8 smarttab cindent autoindent textwidth=80 formatoptions+=l
 
+"perl
+autocmd FileType perl setlocal tabstop=4 shiftwidth=8 smarttab cindent autoindent expandtab
+
 autocmd BufRead buildfile set filetype=ruby
 autocmd BufRead Gemfile set filetype=ruby
 
