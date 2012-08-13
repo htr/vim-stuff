@@ -1,57 +1,117 @@
-"pathogen
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+set nocp
+filetype off
 
-"gui settings
-set guioptions=-t
-if has("gui_macvim")
-  set guifont=Monaco:h13
-  colors desert
-elseif has("gui_running")
-  colors vividchalk
-  set guifont=Terminus\ 13
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+Bundle 'git://github.com/tpope/vim-surround.git'
+Bundle 'tComment'
+Bundle 'Align'
+Bundle 'easytags.vim'
+Bundle 'muttrc.vim'
+Bundle 'desert-warm-256'
+Bundle 'Syntastic'
+Bundle 'tpope/vim-git'
+Bundle 'tpope/vim-fugitive'
+Bundle 'molokai'
+Bundle 'gmarik/ingretu'
+Bundle 'pep8'
+
+" Bundle 'altercation/vim-colors-solarized'
+Bundle 'Lokaltog/vim-powerline'
+
+" tpope/vim-fugitive ?
+" nerdtree? 
+" delimitmate
+
+"colors molokai
+
+filetype plugin indent on
+syntax on
+set smarttab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+
+set autoindent
+
+" gui stuff
+if has("gui_running")
+  set guifont=Envy\ Code\ R\ 11
+  "set guifont=Terminus\ 10
+  set guioptions=-t
 else
   set background=dark
 endif
+set wildmenu
+set wildignore+=*.o,*.obj,.get,*.pyc,*.hi
 
-"encoding
-set enc=utf-8
-set fenc=utf-8
-set termencoding=utf-8
 
-"vim-indent-guides
-let g:indent_guides_start_level = 2
+"statusline
+set laststatus=2
 
-"useful shortcuts
-map <leader>e :e ~/.vimrc<CR>
+" set list listchars=tab:»·,trail:·    " Show the leading whitespaces
+set display=uhex                     " Show unprintables as <xx>
+
+
+" shortcuts
+let mapleader = ","
+
 map <leader>s :source ~/.vimrc<CR>
+map <leader>e :e ~/.vimrc<CR>
+map <leader>bi :BundleInstall<CR>
+map <leader>bu :BundleInstall!<CR>
 
-map <C-p> :tabp<CR>
-map <C-n> :tabn<CR>
+map <leader>c <c-_><c-_>
+map <leader>d :lcd %:p:h<CR>
+" map <leader>a= :Align=<CR>
+
+map <C-f> :FufFile<CR>
+map <C-b> :FufBuffer<CR>
 
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-"fuzzyfinder shortcuts..
-map <C-f> :FufFile<CR>
-map <C-b> :FufBuffer<CR>
+map <C-p> :tabp<CR>
+map <C-n> :tabn<CR>
 
-"basic stuff
-filetype plugin indent on
-syntax on
-set directory=~/.vimswp
-set visualbell
-let g:pyflakes_use_quickfix = 0
-set laststatus=2
-set statusline=%f\ [%{strlen(&ft)?&ft:'none'},%{&fileformat}]\ %h%1*%m%r%w%0*%=%-14.(%l,%c%V%)\ %<%P
+map <C-x><C-k> :bdelete<CR>
+map <C-x><C-s> :w<CR>
 
-"python
-autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with omnifunc=pythoncomplete#Complete
-let python_highlight_all=1
-let python_highlight_exceptions=0
-let python_highlight_builtins=0
+map <C-\> :FufBufferTag<CR>
+
+map <leader>, :FufTag<CR>
+
+" Prevent highlight being lost on (de)indent.
+vnoremap < <gv
+vnoremap > >gv
+
+autocmd! bufwritepost .vimrc source ~/.vimrc
+
+let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|class|meta|lock|orig|jar|swp|pyc|pyo)$|/test/data\.|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
+
+"syntastic
+
+let g:syntastic_mode_map = { 'mode': 'passive',
+                           \ 'active_filetypes': ['python','haskell'],
+                           \ 'passive_filetypes': [] }
+let g:syntastic_enable_signs = 1
+let g:syntastic_auto_loc_list  = 2
+
+
+"easytag
+
+let g:easytags_by_filetype = "~/.vim/tags"
+
+" modes
+
 
 "haskell
 autocmd FileType haskell setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
@@ -76,17 +136,3 @@ autocmd FileType c,cpp setlocal tabstop=8 shiftwidth=8 smarttab cindent autoinde
 
 "perl
 autocmd FileType perl setlocal tabstop=4 shiftwidth=8 smarttab cindent autoindent expandtab
-
-autocmd BufRead buildfile set filetype=ruby
-autocmd BufRead Gemfile set filetype=ruby
-
-set wildignore+=*.o,*.obj,.git,*.pyc
-set wildignore+=django
-
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
-
